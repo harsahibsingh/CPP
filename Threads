@@ -1,0 +1,39 @@
+#include <iostream>
+#include<thread>
+#include<future>
+
+using namespace std;
+
+void func1()
+{
+    cout<<"Fuction 1"<<endl;
+}
+
+void func2(string s)
+{
+    cout<<s<<endl;
+}
+
+void func3(int n)
+{
+    cout<<"Value of integer is:"<<n<<endl;
+}
+
+int func4(int n)
+{
+    return n+1;
+}
+int main()
+{
+    int val{};
+    thread t1{func1};
+    thread t2{func2,"Function 2"};
+    thread t3{func3, 3};
+    auto future=std::async(func4,4);
+    val=future.get();
+    cout<<"val: "<<val<<endl;
+    t1.join();
+    t2.join();
+    t3.join();
+    return 0;
+}
