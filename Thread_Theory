@@ -1,0 +1,15 @@
+To create a new execution thread we nee instance of std::thread:
+  - deined in <thread>
+  - std::thread instance instance cannot be copied but can be moved
+The constructor takes a callable object as its first argument which can be a: function pointer,lambda expression,functor with overloded operator,member function pointer
+  - This represents entry point to a thread i.e it's the code that thread is going to start executing when it runs
+Thread functions:
+  - Cannot be overloded
+  - can take arguments by value,by reference or by move
+Any return value is ignored
+std::thread object starts running as soon as it is created
+To make the parent stop and wait for thread,we call its join() member function:
+  - if not do this the parent carry on executing and could terminate before thread runs.
+  
+ 
+ 
