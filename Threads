@@ -25,10 +25,26 @@ int func4(int n)
     return n+1;
 }
 
-void func5(string &s)
+void func5(string &s)//pass by reference
 {
     s="xyz";
 }
+
+void func6(string &&s)
+{
+cout<<"move execution: "<<s<<endl;
+}
+
+class A
+{
+public:
+void display()
+{
+cout<<"Class A"<<endl;
+}
+};
+
+
 int main()
 {
     
@@ -52,7 +68,31 @@ int main()
     cout<<"After String: "<<s<<endl;
     }
     
+    {
     
+    std::string s{"abcde"};
+    cout<<"Before move: "<<s<<endl;
+    thread t6{func6,std::move(s)};
+    t6.join();
+    cout<<"After move: "<<s<<endl;
+    }
+    
+    {
+    A obj;
+    thread t7{&A::display,&obj};
+    t7.join();
+    }
+    
+    {
+    thread t8{[](){cout<<"Hello Lambda"<<endl;}};
+    t8.join();
+    }
+    
+    {
+    std::string s{"Lambda Input"};
+    thread t9{[&s](){cout<<s<<endl;}};
+    t9.join();
+    }
     t1.join();
     t2.join();
     t3.join();
