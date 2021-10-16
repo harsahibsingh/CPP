@@ -10,6 +10,7 @@ Any return value is ignored
 std::thread object starts running as soon as it is created
 To make the parent stop and wait for thread,we call its join() member function:
   - if not do this the parent carry on executing and could terminate before thread runs.
+ When we have threads running at same time their actions can interleave
   
  
  
