@@ -1,12 +1,13 @@
 #include <iostream>
 #include<thread>
 #include<future>
+#include<string>
 
 using namespace std;
 
 void func1()
 {
-    cout<<"Fuction 1"<<endl;
+    cout<<"Function 1"<<endl;
 }
 
 void func2(string s)
@@ -23,17 +24,38 @@ int func4(int n)
 {
     return n+1;
 }
+
+void func5(string &s)
+{
+    s="xyz";
+}
 int main()
 {
-    int val{};
+    
     thread t1{func1};
+    
     thread t2{func2,"Function 2"};
+    
     thread t3{func3, 3};
+    
+    int val{};
     auto future=std::async(func4,4);
     val=future.get();
     cout<<"val: "<<val<<endl;
+    
+    
+    {
+    std::string s{"abd"};
+    cout<<"Before String: "<<s<<endl;
+    thread t5{func5,std::ref(s)};
+    t5.join();
+    cout<<"After String: "<<s<<endl;
+    }
+    
+    
     t1.join();
     t2.join();
     t3.join();
+
     return 0;
 }
