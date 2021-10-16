@@ -11,6 +11,143 @@ std::thread object starts running as soon as it is created
 To make the parent stop and wait for thread,we call its join() member function:
   - if not do this the parent carry on executing and could terminate before thread runs.
  When we have threads running at same time their actions can interleave
+
+Pausing Treads/Make threads sleep:
+std::this_thread::sleep_for(chrono::milliseconds(20)); // C++11
+
+using namespce std::literals;//C++14
+this_thread::sleep_for(50ms);
+
+
+Thread ID:
+each thread object has thread identifier associated with it
+threadID's are unique if two ID's are equal the objects are identical
+a new thread can have ID of previous thread, if that thread is completed
+
+To obtain thread ID of current thread:
+  std::this_thread::get_id();
   
+To find ID of thread object:
+  t.get_id();
+  
+  native_handle():
+  std::thread has native_handle() member function which returns the underlying software's thread handle.
+  Functionalities provided:
+    -Thread Priority: give a thread higher or lower share of processor time than others
+    -Thread affinity: specify on which CPU or processor core a thread should run
+
+std::thread has ownership semantic(like unique_ptr):
+  -only one thread object can be bound to an execution thread at a time
+  -thread objects cannot be copied
+  -thread objects can be moves(transfer ownership from one object to another)
+  
+Passing std::thread objects to functions:
+  -can pass std::thread objects to a function using pass by move
+      void f(thread t){} //function taking thread object as argument
+  -using a temporary object
+      f(thread{func});//pass temporary to f
+  -using std::move
+      thread t{func};
+      f(move(t));//passing value to f using std::move
+  -return threads from function:
+      thread g(){ //function returning thread object
+      
+      return std::thread{func}; //returning temporary
+      OR
+      thread t{func};
+      return t;//returning local variable
+      }
+      
+      
+std::thread and exception:
+
+each thread has its own call stack.
+When an exception is thrown the stack is un-wound in normal way:
+  - Destructors for all objects in scope are called.
+  - program moves up thread stack until it finds a suitable handle
+  - if no handler is found program is terminated.
+Because the executing thread has its own stack other threads in program includng main thread cannot catch exception.
+Exceptions can only be handled within thread where they occur:
+  - using try/catch block in normal way
+
+Detachning a thread:
+  - Cause parent thread to continue executing
+  - detached task will run until it completes(or program terminates)
+  - analogous to daemon process
+
+Detaching a thread ensures that:
+  - resources needed to join thread are released immediately
+  - if thread is still running when program ends, its destructor is called
+  
+ Exception thrown while managing a thread:
+ - When an exception is thrown in paret thread the destructors are called for every object in scope(including any thread objects).
+ - destructor for std::thread checks whether join() or detach() have been called on the object.
+ - if neither is called destructor calls std::terminate()
+ - must call either join() or detach() before thread is destroyed.
+  
+{
+std::thread t{func};
+try{
+while(do_something()){....}//might throw exception
+}
+catch(std::exception &e){
+t.join();//call to join() before thread destructor is called
+}
+t.join();//No exception thrown, if we reach here call as usual
+}
+
+A thread object can only be joined once:
+  - Calling join() twice is an error
+We can call joinable() to check whether it's safe to call join()
+  - if join() or detach() have already been called on thread object or if thread obj does not have associated execution thread
+      then Returns false otherwise returns True
+      
+class thread_guard{
+std::thread t;
+
+public:
+
+thread_gurad(std::thread&& thread_val):t(std::move(thread_val))//construcor
+{
+}
+
+~thread_guard()//destructor
+{
+if(t.joinable())//join thread if necessary
+{
+t.join();
+}
+}
+
+thread_guard(const thread_guard&)=delete;//delete copy constructor
+thread_guard& operator=(const thread_guard&)=delete;//delete opeartor=
+
+//Now destructor is explicitely defined we need to add our move operators
+
+thread_guard(thread_guard&&) noexcept=default;
+thread_guard& operator=(thread_guard&&) noexcept = default;
+
+
+};
+
+int main()
+{
+std::thread thr{};
+thread_guard tg{std::move(thr)};//thread_guard takes ownership of the executing thread
+}
+ Note:
+ - Destructors are called in reverse order
+        - tg destructor is called first
+        - if necessary it calls t.join()and waits for associated execution thread to finish
+        - tg std::thread member is then destroyed
+        - finally thr is destroyed
+        - since thr no longer has an associated execution thread, it is not joinable and it's destructor does not call std::terminate
+ - Applies in both normal execution and when  exception is thrown
  
+ - Stopping thread is not supported in C++(supported i boost libraries), abruptly terminating thread is not good idea as executing thread may stop but thread object may still be alive and causes memory leaks, other problems like deadlocks
  
+ -C++20 jthread supports cooperative interruption:
+        - request_stop member function
+        - thread will terminate at time of its own choosing(or may ignore it)
+        
+  
