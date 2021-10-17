@@ -1,0 +1,24 @@
+a design pattern is general repeatable solution to a commonly occuring problem in software design. 
+Types:
+1. Creational Design Pattern
+2. Behavioral Design Pattern
+3. Structural Design Pattern
+
+They give developer a selection of tried and tested solutions to work with.
+They are language neutral hence can be applied to any language that supports OOPS
+They have a proven track record as they are already widely used and thus reduce the technical risk to project.
+They are highly flexible and can be used in practically any type of application or domain
+
+Factory Design Pattern (FDP):
+
+- It creates object for you rather you initiating object directly.
+- FDP is also known as "Virtual Constructor"(In C++ we don't have virtual constructor because to call a virtual function we need an object, on that object we can call the virtual function, now if we need constructor as virtual we need an object to call virtual constructor but we dont have that)
+
+How to implement FDP?
+
+Define an interface or an abstract class for creating an object but let the subclass decide which class to initiate.
+
+Advantages:
+-Less code change if we change object creation process.
+-We create object without exposing creation logic to client.
+-We get the benefits of virtual constructor.
