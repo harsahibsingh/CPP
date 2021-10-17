@@ -22,3 +22,35 @@ Advantages:
 -Less code change if we change object creation process.
 -We create object without exposing creation logic to client.
 -We get the benefits of virtual constructor.
+
+
+Singleton Design Pattern:
+
+Define a class that has only one instance and provides a global point of access to that instance.
+
+Requirements:
+  - One and only one instance
+  - Gloal access
+  - No ownership
+  - Lazy initialization
+
+Advantages:
+  - Save memory
+  - Single access point
+  - Flexibility
+  
+Usage:
+`- Multi-threaded
+      -threadpool
+ - Database application
+      -logging
+ - Configuration Settings
+      - game settings,application setting etc.
+      
+To create singleton class we must have:
+  - Static member
+  - Private Constructor//so that user can't instantiate object for the same class
+  - Static function
+
+ 
+ 
