@@ -1,0 +1,32 @@
+#include<iostream>
+#include<mutex>
+using namespace std;
+
+std::mutex mtx;
+
+class Singleton
+{
+private:
+static Singleton *Instance;
+Singleton();
+
+public:
+
+static Singleton* GetInstance()
+{
+mtx.lock();
+if(Instance == NULL)
+  Instance = new Singleton();
+mtx.unlock();
+return Instance;
+}
+
+
+};
+
+int main()
+{
+// Approch 2: when we enter main at that moment application is single threaded,
+Singleton *s= new Singleton();//Eager Instantiate Technique, now after that even if N number of threads are being called the if conition o Line18 will never become true.
+//Problem with approch 2 is Lazy Instantiation is missing(i.e when we need object only then and there we will call the object.)
+}
