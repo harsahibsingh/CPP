@@ -1,0 +1,66 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class GameSetting{
+static GameSetting* instance;
+int brightness;
+int width;
+int height;
+
+GameSetting():width(768),height(1200),brightness(75){}//default constructor
+
+public:
+static GameSetting* getInstance(){
+if(instance == NULL)
+  instance = new GameSetting();
+return instance;
+
+}
+
+void setWidth(int width_val){
+width=width_val;
+}
+
+void setHeight(int height_val){
+height=height_val;
+}
+
+void setBrightness(int brightness_val){
+brightness=brightness_val;
+}
+
+int getWidth(){return width;}
+int getHeight(){return height;}
+int getBrightness(){return brightness;}
+void display()
+{
+cout<<"brightness: "<<brightness<<endl;
+cout<<"height: "<<height<<endl;
+cout<<"width: "<<width<<endl;
+}
+};
+
+GameSetting * GameSetting::instance=0;//for memory allocation
+
+
+void func()
+{
+GameSetting* setting=GameSetting::getInstance();
+setting->display();
+
+}
+int main()
+{
+
+GameSetting* setting=GameSetting::getInstance();
+setting->display();
+cout<<endl;
+setting->setBrightness(100);
+GameSetting* setting2=GameSetting::getInstance();
+setting2->display();
+cout<<endl;
+func();
+
+return 0;
+}
