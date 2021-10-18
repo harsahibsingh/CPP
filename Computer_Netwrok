@@ -1,0 +1,21 @@
+Hub: a multiport repeater
+Repeater:
+  - Receives a digital signal
+  - Amplifies Signal
+  - Broadcasts signal out to other ports
+  
+ Network Segmentation:
+  - Breaking up a large network into smaller domains
+ 
+ WLAN Controller :
+  - Wireless LAN controller manages wireless Access Points and frames
+  
+  VLAN: 
+    - Breaks up broadcast domains on a layer 2 network
+    
+ OSI Model:
+ 
+ 7 layers divided into 2 groups, the top three layers defines how the applications will communicate with each other as well as users
+ Bottom 4 layers defines how data is transferred end to end.
+ 
+ 
