@@ -53,4 +53,15 @@ To create singleton class we must have:
   - Static function
 
  
+ Observer Design Pattern:
+ 
+ - defines one to many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+ 
+ 
+ Builder Design Pattern:
+ - When want to create an object with composing other complex objects  AND want to create these complex objects step by step
+ - There is a Director which directs the build.
+ 
+ 
+
  
