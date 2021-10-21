@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+
+int a =10;
+int &r = a;//r is alias for a
+int b = 25;
+r = b;//here value of b is stored in a now 
+r++;//a value will be incremented
+  
+cout << r << endl << a << endl << b << endl;//26 26 25
+
+    
+return 0;
+}
