@@ -1,0 +1,47 @@
+/*
+Upcasting is converting a derived-class reference or pointer to a base-class.
+It is always allowed for public inheritance, without an explicit type cast.
+Upcasting allows us to treat a derived type as though it were its base type.
+
+The opposite process, converting a base-class pointer (reference) to a derived-class pointer (reference) is called downcasting. 
+Downcasting is not allowed without an explicit type cast. 
+The reason for this restriction is that the is-a relationship is not, in most of the cases, symmetric. 
+
+*/
+
+
+#include<iostream>
+using namespace std;
+
+class Parent {
+public:
+  void display() {cout<<"Base"<<endl;}
+};
+
+class Child: public Parent {
+public:
+  void display(){cout<<"Derived"<<endl;}
+};
+
+int main( ) 
+{ 
+  Parent parent;
+  Child child;
+
+  // upcast - implicit type cast allowed
+  Parent *pParent = &child; 
+
+  // downcast - explicit type case required 
+  Child *pChild =  (Child *) &parent;
+
+  pParent -> display();
+  pChild -> display();
+    
+  return 0; 
+}
+/*output: Base
+          Derived
+          
+   Output if virtual used: Derived
+                            Base
+                            */
