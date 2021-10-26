@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+
+class Base
+{
+    public:
+    void display()
+    {
+        cout<<"Class Base"<<endl;
+    }
+};
+
+class Derived:public Base
+{
+    typedef Base Super;
+    public:
+    void display()
+    {
+        cout<<"Class Derived"<<endl;
+       // Base b;
+        //b.display();
+        //Base::display();
+        Super::display();
+        
+    }
+    
+};
+
+int main()
+{
+    Derived d;
+    d.display();
+    return 0;
+}
