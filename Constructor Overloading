@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class Player
+{
+public:
+
+int *ptr;
+Player(int val=0)
+{
+ptr=new int(val);
+}
+Player(const Player &obj) //copy constructor
+{
+ptr = new int;
+*ptr = *obj.ptr;
+}
+Player& operator =(const Player &obj) //assignment operator
+{
+if(this != &obj)
+*ptr = *(obj.ptr);
+return *this;
+}
+void Display()
+{
+cout<<*ptr<<endl;
+}
+~Player()
+{
+}
+};
+int main()
+{
+Player obj1(25);
+obj1.Display();
+
+Player obj2(obj1);//copy constructor
+obj2.Display();
+
+Player obj3;
+obj3=obj2;
+obj3.Display();
+}
