@@ -5,7 +5,8 @@ using namespace std;
 int main()
 {
     int A[5]; // array declaration
-    cout<<sizeof(A)<<endl; //20 bytes 4bytes(size of int)*5=20bytes
+    cout<<"sizeof A: "<<sizeof(A)<<endl; //20 bytes 4bytes(size of int)*5=20bytes
+    cout<<"A: ";
     for(int i=0;i<sizeof(A)/sizeof(int);i++)
     {
       cout<<A[i]<<" ";  //garbage values printed as array is not initialized
@@ -13,6 +14,7 @@ int main()
     cout<<endl;
     
     int B[]={1,2,3,4,5,6,7}; //can skip size while initializing elements
+    cout<<"B: ";
     for(int i=0;i<sizeof(B)/sizeof(int);i++)
     {
       cout<<B[i]<<" ";  
@@ -20,6 +22,7 @@ int main()
     cout<<endl;
     
     int C[10]={1,2,3,4,5,6,7}; //if initialize few values in array rest values will be zero
+    cout<<"C: ";
     for(int i=0;i<sizeof(C)/sizeof(int);i++)
     {
       cout<<C[i]<<" ";  
@@ -27,7 +30,16 @@ int main()
     cout<<endl;
     
     int D[10]={0}; //initialize first value with zero, rest all will be set to zero
+    cout<<"D: ";
     for(int ele:D)//demonstrating for ech loop
+    {
+      cout<<ele<<" ";  
+    }
+    cout<<endl;
+    
+    int E[10]={2}; //initialize first value with 2, but the rest all will be set to zero
+    cout<<"E: ";
+    for(int ele:E)//demonstrating for ech loop
     {
       cout<<ele<<" ";  
     }
@@ -39,12 +51,13 @@ int main()
     cin>>size;
     cout<<endl;
     int Arr[size];//allowed and values will be garbage
-    //int Brr[size]={1,2,3,4,5};//Not allowed in few compilers
+    int Brr[size]={1,2,3,4,5};//Not allowed in few compilers
     //but in few compilers say size is 2 and we have initialized with 5 elements so only 2 elements will show while printing
     for(int ele:Brr)
     {  
         cout<<ele<<" ";
     }
     cout<<endl;
+    
     return 0;
 }
