@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+
+/*struct Rectangle
+{
+    int length;
+    int breadth;
+    
+};//only declaration no memory is occupied
+
+int main()
+{
+    return 0;
+}
+*/
+
+/*struct Rectangle
+{
+    int length;
+    int breadth;
+    
+}r1;//r1 is global variable
+
+int main()
+{
+   cout<<"length: "<<r1.length<<endl;
+   cout<<"breadth: "<<r1.breadth<<endl;
+    
+    return 0;
+}*/
+
+/*struct Rectangle
+{
+    int length;
+    int breadth;
+};
+
+int main()
+{
+    struct Rectangle r1={10,20};//declaring and initializing 
+    cout<<"length: "<<r1.length<<endl;
+    cout<<"breadth: "<<r1.breadth<<endl;
+    
+    cout<<"Size of: "<<sizeof(r1)<<endl;//8 bytes
+    return 0;
+}*/
+
+struct Rectangle
+{
+    int length;
+    int breadth;
+    char ch;
+};
+
+int main()
+{
+    struct Rectangle r1;
+    cout<<"Size of: "<<sizeof(r1)<<endl;//12 bytes as it's easy for machine to read in 4bytes(making accessibility easy), so it's allocated 4 bytes but will be using 1byte only for char
+   //this adjustment in memory is called padding hence in structures memory padding is done
+    return 0;
+}
