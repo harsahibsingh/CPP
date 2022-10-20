@@ -32,5 +32,19 @@ int main()
       cout<<ele<<" ";  
     }
     cout<<endl;
+    
+    //In both C and C++ variable size arrays can be created but cannot be initialized(depends on compiler some compilers give error while in others it just wont work as expected),Ex:
+    int size;
+    cout<<"Enter array size: ";
+    cin>>size;
+    cout<<endl;
+    int Arr[size];//allowed and values will be garbage
+    //int Brr[size]={1,2,3,4,5};//Not allowed in few compilers
+    //but in few compilers say size is 2 and we have initialized with 5 elements so only 2 elements will show while printing
+    for(int ele:Brr)
+    {  
+        cout<<ele<<" ";
+    }
+    cout<<endl;
     return 0;
 }
