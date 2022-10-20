@@ -27,9 +27,9 @@ int main()
     cout<<endl;
     
     int D[10]={0}; //initialize first value with zero, rest all will be set to zero
-    for(int i=0;i<sizeof(D)/sizeof(int);i++)
+    for(int ele:D)//demonstrating for ech loop
     {
-      cout<<D[i]<<" ";  
+      cout<<ele<<" ";  
     }
     cout<<endl;
     return 0;
