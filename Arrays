@@ -31,7 +31,7 @@ int main()
     
     int D[10]={0}; //initialize first value with zero, rest all will be set to zero
     cout<<"D: ";
-    for(int ele:D)//demonstrating for ech loop
+    for(int ele:D)//demonstrating for each loop
     {
       cout<<ele<<" ";  
     }
@@ -58,6 +58,25 @@ int main()
         cout<<ele<<" ";
     }
     cout<<endl;
+
+// array with const size 
+    const int size {5};
+    float arr[size] {32.5,38.6}; //two elements initialized rest will be initialized to zero
     
+    for(int element:arr) //here array is float and element is of type int hence in output it will truncate
+    {
+        std::cout<<element;
+        std::cout<<"\n"; // output 32,38,0,0,0
+    }
+
+//to prevent truncation element should be of type float or use auto 
+    const int size {5};
+    float arr[size] {32.5,38.6}; //two elements initialized rest will be initialized to zero
+    
+    for(float element:arr) //here output will not truncate (or) can use: for(auto element:arr)
+    {
+        std::cout<<element;
+        std::cout<<"\n"; // output 32.5,38.6,0,0,0
+    }
     return 0;
 }
