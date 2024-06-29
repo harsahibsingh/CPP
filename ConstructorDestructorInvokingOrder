@@ -1,0 +1,50 @@
+#include <iostream>
+
+class Base
+{
+    public:
+    
+    Base()
+    {
+        std::cout<<"Base class constructor"<<std::endl;
+    }
+    
+    ~Base()
+    {
+        std::cout<<"Base class destructor"<<std::endl;
+    }    
+    
+};
+
+class Derived:public Base
+{
+    public:
+    
+    Derived()
+    {
+        std::cout<<"Derived class constructor"<<std::endl;
+    }
+    
+    
+    ~Derived()
+    {
+        std::cout<<"Derived class destructor"<<std::endl;
+    
+    }
+};
+
+int main()
+{
+   // Base obj1; 
+        /*  Base class constructor
+            Base class destructor*/
+            
+    Derived obj2;
+    
+        /*  Base class constructor
+            Derived class constructor
+            Derived class destructor
+            Base class destructor*/
+
+    return 0;
+}
