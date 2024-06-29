@@ -1,0 +1,67 @@
+#include <iostream>
+
+class Base
+{
+    public:
+    
+    Base()
+    {
+        std::cout<<"Base class constructor"<<std::endl;
+    }
+    
+   virtual ~Base()
+    {
+        std::cout<<"Base class destructor"<<std::endl;
+    }    
+    
+};
+
+class Derived:public Base
+{
+    public:
+    
+    Derived()
+    {
+        std::cout<<"Derived class constructor"<<std::endl;
+    }
+    
+    
+    ~Derived()
+    {
+        std::cout<<"Derived class destructor"<<std::endl;
+    
+    }
+};
+
+int main()
+{
+   // Base *obj1 = new Base;
+   // delete obj1;
+    
+    /*  Base class constructor
+        Base class destructor*/
+        
+   // Derived *obj2 = new Derived;
+   // delete obj2;
+    
+    /*  Base class constructor
+        Derived class constructor
+        Derived class destructor
+        Base class destructor*/
+        
+        Base *obj3 = new Derived;
+        delete obj3;
+        
+        /*  Base class constructor
+            Derived class constructor
+            Base class destructor*/  //-->Memory leak as Derived Destructor not called
+            
+         //Now making base class destructor virtual to avoid memory leak, need to make only Base class destructor as virtual
+         
+        /*  Base class constructor
+            Derived class constructor
+            Derived class destructor
+            Base class destructor */
+    
+    return 0;
+}
