@@ -1,0 +1,20 @@
+#include <iostream>
+
+template <typename T>
+
+T Add(T a, T b)
+{
+    return a+b;
+}
+
+int main()
+{
+    int a=5,b=10;
+    
+    float x=5.5,y=11.7;
+    
+    std::cout<<"Int Sum: "<<Add(a,b)<<std::endl;
+    std::cout<<"float Sum: "<<Add(x,y)<<std::endl;
+    
+    return 0;
+}
