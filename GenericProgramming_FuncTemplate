@@ -13,8 +13,8 @@ int main()
     
     float x=5.5,y=11.7;
     
-    std::cout<<"Int Sum: "<<Add(a,b)<<std::endl;
-    std::cout<<"float Sum: "<<Add(x,y)<<std::endl;
+    std::cout<<"Int Sum: "<<Add<int>(a,b)<<std::endl;
+    std::cout<<"float Sum: "<<Add<float>(x,y)<<std::endl;
     
     return 0;
 }
