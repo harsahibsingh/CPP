@@ -1,0 +1,23 @@
+#include<iostream>
+
+template <typename T1,typename T2>
+
+void Display (T1 a, T2 b)
+{
+    
+    std::cout<<"Value 1:"<< a <<" Value 2: "<<b <<std::endl;
+}
+
+int main()
+{
+    char var1 ='A' ;
+    int var2 = 33;
+    double var3 = 3.57;
+    float var4 = 2.22f;
+    
+    Display<char,int>(var1,var2);
+    Display<double,float>(var3,var4);
+    
+    return 0;
+    
+}
