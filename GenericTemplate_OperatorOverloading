@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+
+template <typename T>
+
+T MinimumAge(T a, T b)
+{
+    return (a<b ? a:b);
+}
+
+class Person
+{
+    public:
+    
+    int age;
+    std::string name;
+    
+    bool operator<(const Person &rhs)const
+    {
+        return (this->age < rhs.age);
+        
+    }
+    
+};
+
+int main()
+{
+    Person p1;
+    p1.age =52;
+    Person p2;
+    p2.age = 15;
+    
+    std::cout<<"Min age Person is: "<<MinimumAge(p1.age,p2.age) <<std::endl;
+}
