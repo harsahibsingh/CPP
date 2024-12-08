@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+
+class Person
+{
+    public:
+    
+    std::string name;
+    int age;
+    
+};
+
+/*Remember ostream is defined outside class, 
+for inside make it friend : friend std::ostream& operator<<(std::ostream &os, const Person &p)*/
+
+ std::ostream& operator<<(std::ostream &os, const Person &p)     
+    { 
+        os<<p.name << " "<<p.age;
+        //os<<p.age;
+        return os;
+    }
+
+int main()
+{
+    Person p1 {"Harry",10};
+    Person p2 {"Ron",11};
+    
+    std::cout<<"Person 1 Details: "<<p1<<std::endl;
+    std::cout<<"Person 2 Details: "<<p2<<std::endl;
+  
+  return 0;
+}
