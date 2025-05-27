@@ -1,0 +1,45 @@
+//Time complexity : if d number of digits in number than time complexity O(d)
+//Auxillary Space Required : constant i.e O(1) (as not creating any array etc.)
+
+#include <iostream>
+
+using namespace std;
+
+int Factorial(int num)
+{
+    int val{1};
+    /*int temp = num;
+    
+    while(temp > 0)
+    {
+        
+        val = val*temp;
+        temp--;
+    }*/
+    
+    for(int i=2;i<=num;i++) //iterative solution
+    {
+        val = val*i;
+    }
+    
+    return val; 
+}
+
+int main()
+{
+    
+int res{0};
+
+int num{0};
+
+cout<<"Enter Number( > 0) to calculate factorial: "<<endl;
+cin>>num;
+
+res = Factorial(num);
+
+
+cout<<"Factorial of Input: "<<num<<" is "<<res<<endl;
+
+
+return 0;
+}
