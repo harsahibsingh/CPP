@@ -1,0 +1,35 @@
+//Time complexity : if d number of digits in number than O(d)
+
+#include <iostream>
+
+using namespace std;
+
+int countDigits(int num)
+{
+    int count {0};
+    
+    while(num > 0)
+    {
+        num = num/10;
+        count++;
+    }
+    
+    return count;
+}
+
+int main()
+{
+    
+int res{0};
+
+int num{0};
+
+cout<<"Enter Number( > 0) to count digits: "<<endl;
+cin>>num;
+
+res = countDigits(num);
+
+cout<<"Input: "<<num<<" has " <<res <<" digits in it"<<endl;
+
+return 0;
+}
