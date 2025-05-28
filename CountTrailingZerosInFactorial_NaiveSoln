@@ -1,0 +1,40 @@
+//Time Complexity = O(n)
+// as for loop has complexity O(n), while loop complexity is < O(N)
+//Major issue : causes overflow for even slightly higher values of input number eg:20 
+
+#include <iostream>
+using namespace std;
+
+int countTrailingZeros(int num)
+{
+    int res=1;
+    int count =0;
+    
+    for(int i=2;i<=num;i++)
+    {
+        res=res*i;
+    }
+    
+    while(res%10 ==0)
+    {
+        count++;
+        res=res/10;
+        
+    }
+    
+    return count;
+}
+
+int main()
+{
+    int num =0,res=0;
+    
+    cout<<"Enter number to find trailing zeros in the Factorial: "<<endl;
+    cin>>num;
+    
+    res = countTrailingZeros(num);
+    
+    cout<<num <<" ! has: "<<res<<" Trailing Zeros"<<endl;
+
+    return 0;
+}
