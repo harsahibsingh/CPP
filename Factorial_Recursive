@@ -1,0 +1,35 @@
+//Time Complexity: O(n-1) + O(1) 
+//Auxillary Space: O(n) 
+
+//Iterative Solution is more efficient than recursive 
+
+#include <iostream>
+using namespace std;
+
+int Factorial(int num)
+{
+    if(num == 0)
+    {
+        return 1;
+    }
+    
+    else
+    {
+        return num*Factorial(num-1);
+    }
+    
+}
+
+int main()
+{
+    int num =0,res=0;
+    
+    cout<<"Enter number to find Factorial: "<<endl;
+    cin>>num;
+    
+    res = Factorial(num);
+    
+    cout<<num <<" ! is: "<<res<<endl;
+
+    return 0;
+}
