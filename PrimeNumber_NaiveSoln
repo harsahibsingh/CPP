@@ -1,0 +1,53 @@
+//Prime Number: if its divisors are the number itself or 1.
+//First few prime numbers: 2,3,5,7,11,13,17,19
+//2 is the only even prime number, all other even numbers are not prime (bcz divisible by 2)
+//1 is neither considered Prime nor Composite number
+//Worst case : when entered number is a Prime Number i.e n-2 times iterations happen, which gives O(n) as an upper bound
+//In case of even number input it may even take constant time
+
+#include <iostream>
+using namespace std;
+
+bool IsPrime(int num)
+{
+    if(num==1)
+    {
+        return false;
+    }
+    
+    for(int i=2;i<num;i++)
+    {
+        if(num%i == 0)
+        {
+            return false;
+        }
+        
+    }
+    
+return true;
+
+}
+
+int main()
+{
+    
+    int num =0;
+    bool result = false;
+    
+    cout<<"Enter the number: ";
+    cin>>num;
+    
+    result= IsPrime(num);
+    
+    if(result)
+    {
+        cout<<"Entered number: "<<num<<" is a Prime Number"<<endl;
+    }
+    
+    else
+    {
+        cout<<"Entered number: "<<num<<" is not a Prime Number"<<endl;
+    }
+    
+    return 0;
+}
