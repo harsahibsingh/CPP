@@ -1,0 +1,37 @@
+//here we are calculating number of 5's which comes 
+//(as we need combination of 2 & 5  to get a trailing zero in factorial calculation, and 5 comes less than 2 we focus on 5)
+//This is an efficient solution , Time Complexity : O(logn)
+//also solves major issue of overflow as we are not calculating factorial
+
+#include<iostream>
+using namespace std;
+
+int countTrailingZeros(int num)
+{
+    int count =0;
+    
+    for(int i=5;i<=num;i=i*5) //performed directly on entered number 
+    {
+        count += num/i;//counting 5 occurance
+    }
+    
+    return count;
+}
+
+
+int main()
+{
+    int num=0;
+    int result=0;
+    
+    cout<<"Enter Number to find Trailing Zeros In its Factorial: ";
+    cin>>num;
+    
+    
+    result = countTrailingZeros(num);
+    
+    cout<<num<<" ! has "<<result<<" trailing zeros in it.";
+    
+    
+    return 0;
+}
