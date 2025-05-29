@@ -1,5 +1,6 @@
 //LCM (Least Common Multiple) of two numbers, Efficient Solution 
 //Using Formula: num1*num2 = GCD(num1,num2) * LCM(num1,num2)
+//Time Complexity: O(log(min(num1,num2)))
 
 #include <iostream>
 using namespace std;
