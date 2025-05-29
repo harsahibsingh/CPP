@@ -8,6 +8,7 @@
 //then x*y = num
 //idea is not to check from 2 to n-1 
 //rather check from 2 to √n
+//Time Complexity: O(√n)
 
 #include <iostream>
 using namespace std;
