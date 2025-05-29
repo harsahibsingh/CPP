@@ -1,0 +1,41 @@
+//LCM (Least Common Multiple) of two numbers, Naive solutin 
+//Time Complexity : O(num1*num2 - max(num1,num2))
+//approx : O(num1*num2)
+
+#include <iostream>
+using namespace std;
+
+int LCM(int num1 ,int num2)
+{
+
+    int temp = (num1>num2) ? num1:num2;
+    
+    while(true)
+    {
+        if(temp%num1 ==0 && temp%num2 == 0)
+        {
+            return temp;
+        }
+        else
+        {
+            temp++;
+        }
+    }
+}
+
+int main()
+{
+    
+    int num1=0; 
+    int num2=0;
+    int result =0;
+    
+    cout<<"Enter the numbes: ";
+    cin>>num1>>num2;
+    
+    result= LCM(num1,num2);
+    
+    cout<<"LCM of entered numbers: "<<num1<<" & "<<num2<<" is: "<<result;
+    
+    return 0;
+}
