@@ -1,0 +1,45 @@
+//GCD (Greatest Common Divisor) or HCF (Highest Common Factor)
+//Naive Solution: start with minimum of two numbers and go on decreasing
+//Time Complexity: O(min(num1,num2))
+
+#include <iostream>
+using namespace std;
+
+int GCD(int num1 ,int num2)
+{
+    int temp=0;
+    
+    temp=num1<num2 ? num1:num2;
+    
+    while(temp>0)
+    {
+        if(num1%temp ==0 && num2%temp ==0)
+        {
+            break; //as we need greatest so simply break on finding it
+        }
+        else
+        {
+            temp--; // decrement one by one to fing greatest common divisor
+        }
+    }
+    
+    return temp;
+    
+}
+
+int main()
+{
+    
+    int num1=0; 
+    int num2=0;
+    int result =0;
+    
+    cout<<"Enter the numbes: ";
+    cin>>num1>>num2;
+    
+    result= GCD(num1,num2);
+    
+    cout<<"GCD of entered numbers: "<<num1<<" & "<<num2<<" is: "<<result;
+    
+    return 0;
+}
