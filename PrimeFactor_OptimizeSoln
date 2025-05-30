@@ -1,0 +1,66 @@
+//Prime Factors of a number
+//Ex: 12= 2*2*3
+//Efficient Solution: 
+//1. Divisors always appear in pairs
+//2. Number can be written as multiplications of powers of prime Factors
+//This logic takes out one by one prime factors and their powers
+//Time Complexity: O(√n) in case of prime numbers
+//Less if num is not prime i.e in case of composite numbers
+
+#include <iostream>
+using namespace std;
+
+void PrimeFactors(int num)
+{
+    if(num<=1)
+    {
+        return; //terminates execution of the function
+    }
+    
+    while(num%2==0)//check for 2
+    {
+        cout<<"2 ";
+        num=num/2;
+        
+    }
+    
+    while(num%3==0)//check for 3
+    {
+        cout<<"3 ";
+        num=num/3;
+        
+    }
+    
+    for(int i=5;i*i<=num;i=i+6)
+    {
+        while(num%i ==0)
+            {
+                cout<<i<<" ";
+                num =num/i;  
+            }
+        while(num%(i+2) ==0)
+            {
+                cout<<i+2<<" ";
+                num =num/(i+2);  
+            }
+        
+    }
+    if(num > 3) //as for 2 and 3 as prime handled above already
+    {
+        cout<<num<<" ";
+    }
+    
+}
+
+int main()
+{
+    int num=0;
+    
+    cout<<"Enter number to print its Prime Factors: ";
+    cin>>num;
+    
+    PrimeFactors(num);
+    
+
+    return 0;
+}
