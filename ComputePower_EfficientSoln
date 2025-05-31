@@ -1,0 +1,54 @@
+//Computing Power
+//Ex: Input: 2 3
+// Output: 8
+//Efficient Solution
+//Idea: 
+//pow(x,n) = if(n%2==0) = pow(x,n/2) * pow(x,n/2)
+//         = pow(x,n-1)*x
+//Time Complexity : O(log n)
+//As its recursive, recursive function call will going to take soace in function call stack
+//height of recursion tree would be O(log n)
+//so need O(log n) auxillary space as well
+
+#include<iostream>
+
+using namespace std;
+
+int ComputePower(int x ,int y)
+{
+    if(y==0)
+    {
+        return 1;
+    }
+    
+    int temp =ComputePower(x,y/2); //Recursive call
+   
+    temp=temp*temp;
+    
+    if(y%2==0)
+    {
+        return temp;
+    }
+    
+    else
+    {
+        return (temp*x);
+    }
+}
+
+int main()
+{
+    int x=0;
+    int y=0;
+    int res=1;
+    
+    cout<<"Enter numbers to Compute Powers : ";
+    cin>>x>>y;
+    
+    res = ComputePower(x,y);
+    
+    cout<<"Output: "<<res<<endl; 
+    
+
+    return 0;
+}
