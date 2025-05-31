@@ -1,0 +1,44 @@
+//Enter a num and find all prime numbers less than it
+//Ex: Input: 10
+// Output: 2 3 5 7
+//Efficient & Optimized Solution : Sieve of Eratosthenes
+//Time Complexity: O( n * log(log(n)) )
+
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+
+
+void Sieve(int num)
+{
+    vector<bool> isPrime(num+1, true);
+    
+    for(int i=2;i<=num;i++)
+    {
+        if(isPrime[i])
+        {
+            cout<<i<<" ";
+            for(int j=i*i;j<=num;j=j+i)
+            {
+                isPrime[j]=false;
+            }
+        }
+    }
+    
+}
+
+
+int main()
+{
+    int num=0;
+    
+    cout<<"Enter number to print Prime Numbers: ";
+    cin>>num;
+    
+    Sieve(num);
+    
+
+    return 0;
+}
