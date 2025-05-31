@@ -1,0 +1,62 @@
+//Computing Power
+//Ex: Input: 2 3
+// Output: 8
+//Optimized Solution
+//Idea: 
+//1. Every number can be written as sum of powers of 2(set bits in binary representation).
+//Ex: 10 =1010
+//Ex: 19=10011
+//2. we can traverse through all bits of a number (from LSB to MSB) in O(logn) time.
+/*
+    while(num>0)
+    {
+        if(num%2!=0)
+        //Bit is 1
+        else
+        //Bit is 0 
+        num=num/2;
+    }
+*/
+
+//Time Complexity: O(logn)
+//Aux Space: O(1)
+
+#include<iostream>
+
+using namespace std;
+
+int ComputePower(int x ,int y)
+{
+
+int res=1;
+
+while(y>0)
+{
+    if(y%2!=0)
+    {
+        res=res*x;
+    }
+    x=x*x;
+    y=y/2;
+}
+
+return res;
+
+}
+
+int main()
+{
+    int x=0;
+    int y=0;
+    int res=1;
+    
+    cout<<"Enter numbers to Compute Powers : ";
+    cin>>x>>y;
+    
+    res = ComputePower(x,y);
+    
+    cout<<"Output: "<<res<<endl; 
+    
+
+    return 0;
+}
