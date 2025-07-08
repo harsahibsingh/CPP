@@ -1,0 +1,42 @@
+/*
+
+Negative numbers are represented in 2's complement form.
+
+Range : -2*pow(n-1)  to 2*pow(n-1) -1 ; n= number of bits
+
+Steps to get 2's complement:
+
+    1. Invert all bits
+    2. Add 1 
+    
+Direct Formula: 2*pow(n)-x 
+
+Question: Why sign bit representation is not used?
+Answer :  00----011 -> 3 
+          10----011 -> -3
+          
+This will cause two representations for zero, which will reduce range by 1 and cause confusion in arithmatic operations.
+
+          00----000 -> 0 
+          10----000 -> -0
+
+Note: Same problem is with 1's complement representation 
+
+1's complement -> simply invert the bits 
+
+Example -> 00----011 -> 3
+           11----100 -> -3
+           
+           00----000 -> 0 
+           10----111 -> -0
+           
+NOte: Java has only signed representation
+      C++, have both unsigned and signed 
+      
+Question: Why 2's complement form?
+
+1. We have only one representation of zero.
+2. arithmetic operators are eaier to perform.
+3. leading bit is always 1 -> makes easier to identify negative numbers
+
+*/
