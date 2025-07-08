@@ -1,0 +1,62 @@
+/*
+
+Binary Operators:
+
+Bitwise AND
+Bitwise OR
+Bitwise XOR
+-------------------------------------------------------------------------------------------------------------------------------------
+Left Sift : (x<<y ):y leading bits(from most left i.e MSB) are ignored and rest bits are moved to left zero's, y zero's are added at the end(LSB)
+
+            equivalent to x*2pow(y) if leading y bits are 0 in X
+            
+            Should not be used for negative numbers because behavior is undefined
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Right Shift : (x>> y ) y Trailing bits(from most right i.e LSB) are ignored and rest bits are moved to right, y zero's are added at the begining(MSB)
+               equivalent to floor (x/ 2pow(y))
+               
+               Should not be used for negative numbers because behavior is undefined
+-------------------------------------------------------------------------------------------------------------------------------------
+Unary Operators:
+
+Bitwise NOT:   not recommended to use on signed numbers    
+
+unsigned numbers: 0 to 2 pow(32)-1
+signed numbers:  -2pow(31) to 2pow(32)-1
+
+Note: in signed numers leading 1 means its a negative number 
+      negative numbers are stored in 2's complement form
+      
+      2's complement of x = 2pow(32) -x 
+               
+*/
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a=5;
+    int b=3;
+    
+    unsigned int x=1;//Bitwise operator on unsigned numbers
+    int y=1;//Bitwise operator on signed numbers
+    
+    cout<<"Bitwise AND: "<< (a & b) <<endl;
+    cout<<"Bitwise OR: "<< (a | b) <<endl;
+    cout<<"Bitwise XOR: "<< (a ^ b) <<endl;
+    
+    cout<<"Left Shift: "<<(a<<1)<<endl;//Left shift by 1
+    cout<<"Left Shift: "<<(a<<b)<<endl;//Left shift by b 
+    
+    cout<<"Right Shift: "<<(a>>1)<<endl;//Right shift by 1
+    cout<<"Right Shift: "<<(a>>b)<<endl;//Right shift by b 
+    
+    cout<<"Bitwise NOT(unsigned): "<<(~x)<<endl;
+    cout<<"Bitwise NOT(signed): "<<(~y)<<endl;
+
+    return 0;
+}
