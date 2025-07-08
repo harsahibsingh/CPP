@@ -1,0 +1,52 @@
+/*
+
+Check if kth bit is set or not?
+
+Example: 
+
+I/P : n=5 , k=1   -> n= 00--0101
+O/P : Yes
+
+I/P : n=8 , k=2   -> n=00--1000
+O/P : No
+
+I/P : n=0 , k=3   -> n=00--0000
+O/P : No
+
+Note: k<= no of bits in the binary representation of n
+
+Question : How to check the last bit?
+
+            if (n & 1)==0
+                cout<<Last Bit not set -> Even Number
+            else
+                cout<<Last Bit is set -> Odd Number
+
+*/
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,k;
+    
+    cout<<"Enter Number: "<<endl;
+    cin>>n;
+    
+    cout<<"Enter Kth bit to check: "<<endl;
+    cin>>k;
+    
+    if ((n & (1<<(k-1)))==0)
+    {
+        cout<<"No"<<endl;
+    }
+    else
+    {
+        cout<<"Yes"<<endl;
+    }
+    
+    
+    return 0;
+}
