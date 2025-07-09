@@ -1,0 +1,51 @@
+/*Count Set Bits:
+
+Idea: 
+
+Naive Solution: 
+
+1. Initialize res=0
+2. traverse from LSB to MSB and increment for every set bit
+3. Return res
+
+
+Check for last bit set:
+
+if((n%2) !=0)  OR if(n&1 !=0)
+{
+    cout<<Bit Set
+}
+
+hence we move bits to right one by one
+for this n=n/2
+
+Time Complexity : θ(d) , where d= no of bits from LSB to MSB
+
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    int res=0;
+    
+    cout<<"Enter Number: "<<endl;
+    cin>>n;
+    
+    while(n>0)
+    {
+        if(n%2 !=0)
+        {
+            res++;
+        }
+        
+        n=n/2;
+    }
+    
+    cout<<"Count for Set Bits: "<<res;
+    
+    return 0;
+}
