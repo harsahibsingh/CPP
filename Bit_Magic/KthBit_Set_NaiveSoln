@@ -1,0 +1,40 @@
+//To check if kth bit is set or not?
+
+//Naive Solution : 
+//Idea: 2*pow(k-1)
+//Time Complexity: θ(k)
+
+
+#include<iostream>
+
+using namespace std;
+
+
+int main()
+{
+    int n,k;
+    int x=1;
+    
+    cout<<"Enter number: "<<endl;
+    cin>>n;
+    
+    cout<<"Enter kth bit to check: "<<endl;
+    cin>>k;
+    
+    for(int i=0;i<(k-1);i++)
+    {
+        x=x*2;
+        
+    }
+    
+    if( (n &x)!=0)
+    {
+        cout<<"Yes kth bit is set"<<endl;
+    }
+    else
+    {
+        cout<<"No kth bit is not set"<<endl;
+    }
+    
+    return 0;
+}
