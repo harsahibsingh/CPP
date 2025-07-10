@@ -1,0 +1,65 @@
+/*
+
+Power of 2.
+
+Naive Solution : Time Complexity : O(logn)
+
+Example: 
+i/p =2 
+o/p = true
+
+i/p = 6 
+o/p = false
+
+i/p =0 
+o/p = false
+
+
+
+*/
+
+#include<iostream>
+
+using namespace std;
+
+bool isPower2(int n)
+{
+    if(n==0)
+    {
+        return false;
+    }
+    
+    while(n!=1)
+    {
+        if(n%2 !=0)
+        {
+            return false;
+        }
+        n=n/2;
+        
+    }
+    return true;
+}
+
+int main()
+{
+    int n;
+    bool result=false;
+    
+    cout<<"Enter number: "<<endl;
+    cin>>n;
+    
+    result = isPower2(n);
+    
+    if(result)
+    {
+        cout<<"Yes! its Power of 2."<<endl;
+    }
+    else
+    {
+        cout<<"No! its not Power of 2."<<endl;
+    }
+    
+    
+    return 0;
+}
