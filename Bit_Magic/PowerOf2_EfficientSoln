@@ -1,0 +1,67 @@
+/*
+
+Power of 2.
+
+Efficient Solution : 
+Time Complexity : O(1) i.e constant time Complexity 
+
+Idea: Binary Representation of power of 2 have only 1 set bit.
+
+Example:
+
+1 -> 00---001
+2 -> 00---010
+4 -> 00---100
+
+-> If count of set bits = 1 return true ; else return false
+
+Example: 
+i/p =2 
+o/p = true
+
+i/p = 6 
+o/p = false
+
+i/p =0 
+o/p = false
+
+
+
+*/
+
+#include<iostream>
+
+using namespace std;
+
+bool isPower2(int n)
+{
+    if(n==0)
+    {
+        return false;
+    }
+    
+    return ((n&(n-1)) == 0);
+}
+
+int main()
+{
+    int n;
+    bool result=false;
+    
+    cout<<"Enter number: "<<endl;
+    cin>>n;
+    
+    result = isPower2(n);
+    
+    if(result)
+    {
+        cout<<"Yes! its Power of 2."<<endl;
+    }
+    else
+    {
+        cout<<"No! its not Power of 2."<<endl;
+    }
+    
+    
+    return 0;
+}
