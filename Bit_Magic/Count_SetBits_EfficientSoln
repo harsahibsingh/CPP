@@ -1,0 +1,56 @@
+/*Count Set Bits: Efficient Solution
+
+Brian Kernighan's Algorithm : Time Complexity Θ(no of set bits)
+
+Idea: Traverse through LSB to MSB and change every set bit to zero one by one
+
+Example:
+
+Input Number:        n =40 (101000)
+After 1st iteration: n =32 (100000)
+After 2nd iteration: n=0   (00000)
+
+CONCEPT: When you subtract 1 from a number all the trailing zeros become 1 
+        Then when bitwise AND between n and n-1 this will make first occurance of 1st bit to zeros
+        
+Example:  
+n= 40 = 101000
+n-1 = 39 = 100111
+
+n =     101000
+n-1=    100111
+       ------------
+n&(n-1) 100000     --->32
+       ------------
+Now repeat:
+
+n = 32      = 100000
+n-1 = 31    = 011111
+            ----------
+n&(n-1)     = 000000
+            ----------
+            
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    int res=0;
+    
+    cout<<"Enter Number: "<<endl;
+    cin>>n;
+    
+    while(n>0)
+    {
+        n= n&(n-1);
+        res++;
+    }
+    
+    cout<<"Count for Set Bits: "<<res;
+    
+    return 0;
+}
