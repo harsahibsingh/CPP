@@ -1,0 +1,76 @@
+/*
+
+Two Odd Occurring Number
+
+Example:
+
+i/p : [3,4,3,4,5,4,4,6,7,7]
+o/p = 5 6 
+
+i/p : [1,3,2,3,3,1]
+o/p = 2 3 
+
+
+
+Naive Solution:
+
+Time Complexity: O(n^2)
+Aux space: O(1)
+
+
+Idea:
+
+Traverse throught the array , count occurances of every number . If count is odd print the number.
+
+*/
+
+#include<iostream>
+
+using namespace std;
+
+void Find2Odd(int arr[], int size)
+{
+    
+    for(int i=0;i<size;i++)
+    {
+        int count=0;
+        for(int j=0;j<size;j++)
+        {
+            if(arr[i] == arr[j])
+            {
+                count++;
+            }
+        }
+        
+        if(count%2 !=0)
+        {
+            cout<<arr[i]<<" ";
+        }
+    }
+    
+}
+
+
+int main()
+{
+    int size;
+    int arr[100]={};
+    
+    cout<<"Enter the size of array: "<<endl;
+    cin >>size;
+    
+    cout<<"Enter Array Elements: "<<endl;
+    
+    for(int i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    cout<<"Output: "<<endl;
+    
+    Find2Odd(arr, size);
+    
+    
+    return 0;
+}
+
