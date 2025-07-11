@@ -1,0 +1,59 @@
+/*
+
+Power Set
+----------------
+    c b a  o/p 
+----------------
+0   0 0 0  ""
+1   0 0 1  "a"
+2   0 1 0  "b"
+3   0 1 1  "ab" 
+4   1 0 0  "c"
+5   1 0 1  "ac"
+6   1 1 0  "bc"
+7   1 1 1  "abc"
+
+Time Complexity : θ(2^n * n)
+*/
+
+#include<iostream>
+#include <string>
+
+using namespace std;
+
+void printPowerSet(string s)
+{
+    
+int n =s.length(); // e.g. 3 for "abc
+int psize = (1<<n); // 2^n = 8 subsets
+
+for(int i=0;i<psize;i++) // i = subset number (0 to 7)
+{
+    for(int j=0;j<n;j++) //going through each character position in the input string s (from left to right, s[0] to s[n-1]).
+    {
+        if((i&(1<<j))!=0)
+        {
+            cout<<s[j];
+        }
+    }
+    cout<<endl;
+}
+    
+}
+
+
+int main()
+{
+    string s;
+    
+    cout<<"Enter the string: "<<endl;
+    cin>>s;
+    
+    cout<<"Output: "<<endl;
+    
+     printPowerSet(s);
+    
+    
+    return 0;
+}
+
