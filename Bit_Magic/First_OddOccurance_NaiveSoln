@@ -1,0 +1,71 @@
+/*
+
+One Odd Occurring Number
+       or 
+First Odd Occurring Number
+
+Naive Solution:
+
+Time Complexity: O(n^2)
+*/
+
+#include<iostream>
+
+using namespace std;
+
+int Find1stOdd(int arr[], int size)
+{
+    
+    
+    for(int i=0;i<size;i++)
+    {
+        int count=0;
+        for (int j=0;j<size;j++)
+        {
+            if(arr[i]==arr[j])
+            {
+                count++;
+            }
+            
+        }
+        
+        if(count%2!=0)
+        {
+            return arr[i];
+        }
+    }
+    
+    return -1;
+}
+
+
+int main()
+{
+    int size;
+    int arr[100]={};
+    int res;
+    
+    cout<<"Enter the size of array: "<<endl;
+    cin >>size;
+    
+    cout<<"Enter Array Elements: "<<endl;
+    
+    for(int i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    res = Find1stOdd(arr, size);
+    
+    if(res==-1)
+    {
+        cout<<"No Odd occurance element exist in array ";
+    }
+    else
+    {
+        cout<<"First Odd occurance element is: "<<res;
+    }
+    
+    return 0;
+}
+
