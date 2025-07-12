@@ -45,3 +45,11 @@ Applications Of Recursion:
 2. Problems inherently recursive:
       Tower Of Hanoi
       DFS based traversals (DFS of graph and Inorder/Preorder/Postorder traversal of tree )
+
+Note:
+Iterative Solutions causes lesser overheads
+Ex: Recursive Binary Search : O(logn) Aux space
+    Iterative Binary Search : O(1) Aux space
+One more problem with recurssion is function call overhead
+Still recursion is used because of ease in implementation
+
