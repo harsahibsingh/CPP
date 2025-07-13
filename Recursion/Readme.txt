@@ -83,7 +83,50 @@ start:
 //i.e above recursion is removed completely, this way aux space need to store state of caller while calling recursion, also need to resume all the states , all this overhead is gone.
 //These changes which modern compilers do are called Tail call elimination.
 
-Note: All non-tail recursive functions cannot be converetd to til recursive
+Ex: Non-tail recursive:
+void func(int n)
+{
+  if(n ==0)
+    return ;
 
+  func(n-1); 
+  print (n); //non-tail recursive
+}
+
+//Equivalent tail recursive of above function:
+void func(int n,int k)//here k has to be passed 1 initially
+{
+  if(n ==0)
+    return ;
+
+  print (k);
+  func(n-1,k+1);  //recursion at last
+}
+
+Note: Although were able to convert above non-tail recursive function to tail recursive but all non-tail recursive functions cannot be converetd to tail recursive.
+      Ex: Merge Sort (non -tail recursive) and Quick sort (tail recursive) -> one of the reasons quick sort is faster
+          Tree traversal , in-order and pre-order traversals are tail recursive whereas post-order traversal is non-tail recursive
+
+Ex: Guess if following function is tail recursive or not?
+
+  int fact(int n)
+{
+  if(n==0 || n==1)
+    return 1;
+
+  return n*fact(n-1); //here it is non-tail recursive as we nned value of fact(n-1) from parent to calculate n*fact(n-1)
+
+}
+
+Equivalent tail recursive func for above:
+
+ int fact(int n,int k)//here k has to be passed 1 initially
+{
+  if(n==0 || n==1)
+    return k;
+
+  return fact(n-1,k*n); 
+
+}
 
 
