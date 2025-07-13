@@ -1,0 +1,39 @@
+/*
+
+Log Calculaton : log base (num)
+Example: log2 (8) = 3
+reason : (the logarithm of 8 to base 2 is equal to 3, because 2^3 = 8).
+
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int LogCalculator(int num, int base)
+{
+	if(num < base)
+	{
+		return 0;
+	}
+	else
+	{
+		return (1+LogCalculator(num/base,base));
+	}
+
+}
+
+int main()
+{
+	int num;
+	int base;
+
+	cout<<"Enter log base value: "<<endl;
+	cin>>base;
+	cout<<"Enter the  Number to calculate log value(floor): "<<endl;
+	cin>>num;
+
+	cout<<"Log value: "<<LogCalculator(num,base);
+
+	return 0;
+}
