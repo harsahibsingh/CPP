@@ -7,6 +7,12 @@ Ex:
 i/p : 4
 o/p : 1 2 3 4
 
+Time Complexity: Θ ( n )
+
+Note: At most there will be n+1 function calls at any moment.
+
+Aux Space: O(n) //this is the most space required i.e worst case
+
 */
 
 #include <iostream>
