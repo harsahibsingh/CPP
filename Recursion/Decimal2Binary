@@ -1,0 +1,35 @@
+/*
+
+Decimal to Binary conversion using recursion
+
+*/
+
+#include <iostream>
+
+using namespace std;
+
+void Decimal2Binary(int num)
+{
+    if(num==0)
+    {
+        return;
+    }
+    
+    Decimal2Binary(num/2);
+    cout<<(num%2)<<" ";
+    
+    
+}
+
+int main()
+{
+    int num;
+    
+    cout<<"Enter the Binary Number to convert: "<<endl;
+    cin>>num;
+    
+    cout<<"Binary Equivalent: ";
+    Decimal2Binary(num);
+
+    return 0;
+}
