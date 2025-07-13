@@ -8,6 +8,13 @@ i/p : 4
 o/p : 4 3 2 1
 
 Note: n>=1 (i.e user will not input zero or negative number)
+
+Time Complexity: Θ ( n )
+
+Note: At most there will be n+1 function calls at any moment. (max store at function call stack)
+
+Aux Space:  Θ(n) //this is the most space required i.e worst case
+
 */
 
 #include <iostream>
